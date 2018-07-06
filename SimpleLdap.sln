@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleLdap", "SimpleLdap\SimpleLdap.csproj", "{C73C1D21-CC86-4B70-8DDC-B11547442D26}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleLdap.Providers", "SimpleLdap.Providers\SimpleLdap.Providers.csproj", "{55924F37-FA0A-437E-8956-23FC486F5119}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleLdap.Tests", "SimpleLdap.Tests\SimpleLdap.Tests.csproj", "{218F0403-C0B6-49DB-8036-416C689046EE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C73C1D21-CC86-4B70-8DDC-B11547442D26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C73C1D21-CC86-4B70-8DDC-B11547442D26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C73C1D21-CC86-4B70-8DDC-B11547442D26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C73C1D21-CC86-4B70-8DDC-B11547442D26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55924F37-FA0A-437E-8956-23FC486F5119}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55924F37-FA0A-437E-8956-23FC486F5119}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55924F37-FA0A-437E-8956-23FC486F5119}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55924F37-FA0A-437E-8956-23FC486F5119}.Release|Any CPU.Build.0 = Release|Any CPU
+		{218F0403-C0B6-49DB-8036-416C689046EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{218F0403-C0B6-49DB-8036-416C689046EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{218F0403-C0B6-49DB-8036-416C689046EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{218F0403-C0B6-49DB-8036-416C689046EE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
