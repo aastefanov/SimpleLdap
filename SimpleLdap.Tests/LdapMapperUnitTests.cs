@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using SimpleLdap.Attributes;
 using SimpleLdap.Providers;
 
 namespace SimpleLdap.Tests
@@ -18,8 +19,8 @@ namespace SimpleLdap.Tests
 
             Assert.Multiple(() =>
                 {
-                    Assert.AreEqual("sn", mapperAd.Map(LdapAttribute.GivenName));
-                    Assert.AreEqual("givenName", mapperOpenLdap.Map(LdapAttribute.GivenName));
+                    Assert.AreEqual("givenName", mapperAd.GetAttributeKey(LdapAttribute.FirstName));
+                    Assert.AreEqual("givenName", mapperOpenLdap.GetAttributeKey(LdapAttribute.FirstName));
                 }
             );
         }

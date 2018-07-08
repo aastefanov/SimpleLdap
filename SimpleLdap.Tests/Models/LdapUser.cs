@@ -1,14 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
 using LinqToLdap.Mapping;
+using SimpleLdap.Attributes;
+using SimpleLdap.Interfaces;
 
 namespace SimpleLdap.Tests.Models
 {
-    public class LdapUser : LdapEntity
+    [LdapEntity(LdapEntityType.User)]
+    public class LdapUser : ILdapEntity
     {
-        [LdapAttribute(LdapAttribute.DistinguishedName)] public new string DistinguishedName { get; set; }
+        [LdapAttribute(LdapAttribute.DistinguishedName, true)]
+        public string DistinguishedName { get; set; }
 
-        [LdapAttribute(LdapAttribute.GivenName)] public string GivenName { get; set; }
-        
-        [LdapAttribute(LdapAttribute.CommonName)] public string CommonName { get; set; }
+        [LdapAttribute(LdapAttribute.FirstName)]
+        public string GivenName { get; set; }
+
+        [LdapAttribute(LdapAttribute.FullName)]
+        public string CommonName { get; set; }
     }
 }

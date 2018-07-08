@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace SimpleLdap
+﻿namespace SimpleLdap.Interfaces
 {
     public interface ILdapServerConfiguration<TAttribute>
     {

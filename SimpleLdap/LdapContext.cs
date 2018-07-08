@@ -4,6 +4,7 @@ using System.Linq.Expressions;
 using LinqToLdap;
 using System.Linq;
 using System.Reflection;
+using SimpleLdap.Interfaces;
 
 namespace SimpleLdap
 {
@@ -11,8 +12,9 @@ namespace SimpleLdap
     public class LdapContext<TProvider> where TProvider : ILdapProvider, new()
     {
         private readonly LdapConfiguration _configuration;
-        private ILdapProvider _provider = new TProvider();
-
+        private readonly ILdapProvider _provider = new TProvider();
+        private readonly LdapAttributeMapper<TProvider> _mapper = new LdapAttributeMapper<TProvider>();
+        
         public LdapContext(LdapConfiguration configuration)
         {
             _configuration = configuration;

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using SimpleLdap.Attributes;
+using SimpleLdap.Interfaces;
 
 namespace SimpleLdap.Providers
 {
@@ -9,8 +11,15 @@ namespace SimpleLdap.Providers
         {
             {LdapAttribute.DistinguishedName, "DN"},
             {LdapAttribute.ObjectClass, "objectClass"},
-            {LdapAttribute.GivenName, "givenName"},
-            {LdapAttribute.CommonName, "cn"}
+            {LdapAttribute.FirstName, "givenName"},
+            {LdapAttribute.FullName, "cn"}
+        };
+
+        public IDictionary<LdapEntityType, string> ObjectClasses => new Dictionary<LdapEntityType, string>
+        {
+            {LdapEntityType.User, "person"},
+            {LdapEntityType.Group, "group"},
+            {LdapEntityType.OrganizationalUnit, "organizationalUnit"}
         };
     }
 }

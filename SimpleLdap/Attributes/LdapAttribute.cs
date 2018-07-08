@@ -1,0 +1,107 @@
+﻿namespace SimpleLdap.Attributes
+{
+    public enum LdapAttribute
+    {
+        DistinguishedName,
+        ObjectClass,
+
+        FirstName,
+        Initials,
+        LastName,
+        LogonName,
+        FullName,
+
+        Description,
+
+        Office,
+        TelephoneNumber,
+        EmailAddress,
+        WebPage,
+
+        StreetAddress,
+        PostOfficeBox,
+        City,
+        State,
+        ZipCode,
+        Country,
+
+        Password,
+        AccountExpires,
+        UserAccountControl,
+        UserPhoto,
+        ProfilePath,
+        LoginScript,
+        HomeFolder,
+        HomeDrive,
+        LogonTo,
+
+        HomeNumber,
+        Pager,
+        MobileNumber,
+        Fax,
+        IpPhone,
+
+        Notes,
+        Title,
+        Department,
+        Company,
+        Manager,
+        MailAlias,
+        
+        SimpleDisplayName,
+        HideFromAddressLists,
+        
+        EmailSendSize,
+        EmailRecvSize,
+        EmailAcceptFromAuthenticatedOnly,
+        EmailRejectFrom,
+        EmailAcceptFrom,
+        EmailSendOnBehalf,
+        EmailForwardTo,
+        EmailDeliverAndRedirect,
+        ReciepientLimits,
+        EmailUseStoreDefaults,
+        EmailQuota,
+        EmailOverQuota,
+        EmailOverHardQuota,
+        EmailDeletedItemFlags,
+        EmailGarbageCollectionPeriod,
+        EmailMobileAccess,
+        EmailWebAccess,
+        
+        EmailAdminGroup,
+        EmailServerName,
+        EmailPoliciesExcluded,
+        
+        TerminalServicesAllowLogon,
+        TerminalServicesProfilePath,
+        TerminalServicesHomeFolder,
+        TerminalServicesHomeDrive,
+        TerminalServicesLoginScriptInherit,
+        TerminalServicesLoginScript,
+        TerminalServicesWorkingDirectory,
+        TerminalServicesConnectClientDrives,
+        TerminalServicesConnectClientPrinters,
+        TerminalServicesConnectDefaultPrinter,
+        TerminalServicesSessionDisconnect,
+        TerminalServicesSessionActiveLimit,
+        TerminalServicesSessionIdleLimit,
+        TerminalServicesSessionTimeout,
+        TerminalServicesSesionReconnection,
+        TerminalServicesRemoteControl,
+        
+        PreventDeletion,
+        ManagerCanUpdateMembers,
+        PrimaryGroupId,
+        ManagedBy,
+        TargetAddress,
+        ProxyAdresses,
+         
+        Office365Group,
+        Office365LigitationHoldEnabled,
+        Office365LigitationHoldDuration,
+        Office365InPlaceArchiveEnabled,
+        Office365InPlaceArchiveName,
+        Office365LogonName
+    }
+}

@@ -4,6 +4,7 @@ using System.Linq;
 using LinqToLdap.Mapping;
 using NUnit.Compatibility;
 using NUnit.Framework;
+using SimpleLdap.Attributes;
 using SimpleLdap.Providers;
 using SimpleLdap.Tests.Models;
 
