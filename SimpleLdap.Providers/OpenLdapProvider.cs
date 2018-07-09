@@ -9,17 +9,36 @@ namespace SimpleLdap.Providers
     {
         public IDictionary<LdapAttribute, string> AttributeNames => new Dictionary<LdapAttribute, string>
         {
-            {LdapAttribute.DistinguishedName, "DN"},
-            {LdapAttribute.ObjectClass, "objectClass"},
-            {LdapAttribute.FirstName, "givenName"},
-            {LdapAttribute.FullName, "cn"}
+            {LdapAttribute.DistinguishedName, "dn"},
+            {LdapAttribute.FirstName, "gn"},
+            {LdapAttribute.FullName, "cn"},
+            {LdapAttribute.HomeNumber, "homePhone"},
+            {LdapAttribute.Country, "co"},
+            {LdapAttribute.UserPhoto, "jpegPhoto"},
+            {LdapAttribute.MobileNumber, "mobile"},
+            {LdapAttribute.EmailAddress, "mail"},
+            {LdapAttribute.Pager, "pager"},
+            {LdapAttribute.LastName, "surname"},
+            {LdapAttribute.StreetAddress, "street"},
+            {LdapAttribute.Password, "userPassword"},
+            {LdapAttribute.LogonName, "uid"},
+            {LdapAttribute.State, "stateOrProvinceName"},
+            {LdapAttribute.ZipCode, "postalCode"},
+            {LdapAttribute.TelephoneNumber, "facsimileTelephoneNumber"}
         };
 
-        public IDictionary<LdapEntityType, string> ObjectClasses => new Dictionary<LdapEntityType, string>
-        {
-            {LdapEntityType.User, "person"},
-            {LdapEntityType.Group, "group"},
-            {LdapEntityType.OrganizationalUnit, "organizationalUnit"}
-        };
+        public IDictionary<LdapEntityType, IEnumerable<string>> ObjectClasses =>
+            new Dictionary<LdapEntityType, IEnumerable<string>>
+            {
+                {
+                    LdapEntityType.User, new List<string> {"account", "top"}
+                },
+                {
+                    LdapEntityType.Group, new List<string> {"groupOfUniqueNames", "top"}
+                },
+                {
+                    LdapEntityType.OrganizationalUnit, new List<string> {"organizationalUnit", "top"}
+                }
+            };
     }
 }

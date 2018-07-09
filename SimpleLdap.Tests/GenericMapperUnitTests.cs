@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
 using LinqToLdap.Mapping;
+using NSubstitute;
 using NUnit.Framework;
 using SimpleLdap.Attributes;
+using SimpleLdap.Interfaces;
 using SimpleLdap.Providers;
 using SimpleLdap.Tests.Models;
 
@@ -21,19 +23,39 @@ namespace SimpleLdap.Tests
         };
 
         [Test]
-        public void TestMapping_ActiveDirectory_HasCountAndObjectClass()
+        public void TestMapping_ActiveDirectory_HasCountAndObjectClasses()
         {
-            var mapper = new LdapAttributeMapper<ActiveDirectoryLdapProvider>();
-            var directoryMapper = new DirectoryMapper();
-            var classMapper = new GenericMapper<LdapUser, ActiveDirectoryLdapProvider>(mapper);
+            var providerAd = new ActiveDirectoryLdapProvider();
+            var mapperAd = new LdapAttributeMapper<ActiveDirectoryLdapProvider>(providerAd);
+            var directoryMapperAd = new DirectoryMapper();
+            var classMapperAd = new GenericMapper<LdapUser, ActiveDirectoryLdapProvider>(mapperAd);
 
-            directoryMapper.Map(classMapper);
-            
+            directoryMapperAd.Map(classMapperAd);
+
             Assert.Multiple(() =>
             {
-                Assert.That(classMapper.PropertyMappings, Has.Count.EqualTo(3));
-                Assert.AreEqual(mapper.ObjectClasses[LdapEntityType.User],
-                    classMapper.ToObjectMapping().ObjectClasses.First());
+                Assert.That(classMapperAd.PropertyMappings, Has.Count.EqualTo(3));
+                Assert.AreEqual(mapperAd.ObjectClasses[LdapEntityType.User],
+                    classMapperAd.ToObjectMapping().ObjectClasses);
+            });
+        }
+
+
+        [Test]
+        public void TestMapping_OpenLdap_HasCountAndObjectClasses()
+        {
+            var providerOpenLdap = new OpenLdapProvider();
+            var mapperOpenLdap = new LdapAttributeMapper<OpenLdapProvider>(providerOpenLdap);
+            var directoryMapperOpenLdap = new DirectoryMapper();
+            var classMapperOpenLdap = new GenericMapper<LdapUser, OpenLdapProvider>(mapperOpenLdap);
+
+            directoryMapperOpenLdap.Map(classMapperOpenLdap);
+
+            Assert.Multiple(() =>
+            {
+                Assert.That(classMapperOpenLdap.PropertyMappings, Has.Count.EqualTo(3));
+                Assert.AreEqual(mapperOpenLdap.ObjectClasses[LdapEntityType.User],
+                    classMapperOpenLdap.ToObjectMapping().ObjectClasses);
             });
         }
     }

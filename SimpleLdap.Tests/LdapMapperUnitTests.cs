@@ -1,5 +1,8 @@
-﻿using NUnit.Framework;
+﻿using System.Collections.Generic;
+using NSubstitute;
+using NUnit.Framework;
 using SimpleLdap.Attributes;
+using SimpleLdap.Interfaces;
 using SimpleLdap.Providers;
 
 namespace SimpleLdap.Tests
@@ -10,17 +13,15 @@ namespace SimpleLdap.Tests
         [Test]
         public void AttributeMapper_GivenName_GetValue()
         {
-            var mapperAd =
-                new LdapAttributeMapper<ActiveDirectoryLdapProvider>();
+            
+            var provider = Substitute.For<ILdapProvider>();
+            provider.AttributeNames.Returns(new Dictionary<LdapAttribute, string>{{LdapAttribute.FirstName, "gn"}});
 
-            var mapperOpenLdap =
-                new LdapAttributeMapper<OpenLdapProvider>();
-
-
+            var mapper = new LdapAttributeMapper<ILdapProvider>(provider);
+            
             Assert.Multiple(() =>
                 {
-                    Assert.AreEqual("givenName", mapperAd.GetAttributeKey(LdapAttribute.FirstName));
-                    Assert.AreEqual("givenName", mapperOpenLdap.GetAttributeKey(LdapAttribute.FirstName));
+                    Assert.AreEqual("gn", mapper.GetAttributeKey(LdapAttribute.FirstName));
                 }
             );
         }

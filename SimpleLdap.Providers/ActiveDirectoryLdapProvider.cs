@@ -58,17 +58,30 @@ namespace SimpleLdap.Providers
                 {LdapAttribute.MailAlias, "mailNickName"},
 
                 {LdapAttribute.SimpleDisplayName, "displayNamePrintable"},
-                {LdapAttribute.HideFromAddressLists, "msExchHideFromAddressLists"},
+
+                {LdapAttribute.PreventDeletion, "preventDeletion"},
+                {LdapAttribute.ManagerCanUpdateMembers, "managerCanUpdateMembers"},
+                {LdapAttribute.PrimaryGroupId, "primaryGroupID"},
+                {LdapAttribute.ManagedBy, "managedBy"},
+                {LdapAttribute.TargetAddress, "targetAddress"},
+                {LdapAttribute.ProxyAdresses, "proxyAddresses"}
             }
             .Concat(AttributeGroups.EmailAttributes)
             .Concat(AttributeGroups.TerminalServicesAttributes)
             .Concat(AttributeGroups.Office365Attributes);
 
-        public IDictionary<LdapEntityType, string> ObjectClasses => new Dictionary<LdapEntityType, string>
-        {
-            {LdapEntityType.User, "person"},
-            {LdapEntityType.Group, "group"},
-            {LdapEntityType.OrganizationalUnit, "organizationalUnit"}
-        };
+        public IDictionary<LdapEntityType, IEnumerable<string>> ObjectClasses =>
+            new Dictionary<LdapEntityType, IEnumerable<string>>
+            {
+                {
+                    LdapEntityType.User, new List<string> {"person", "top"}
+                },
+                {
+                    LdapEntityType.Group, new List<string> {"group", "top"}
+                },
+                {
+                    LdapEntityType.OrganizationalUnit, new List<string> {"organizationalUnit", "top"}
+                }
+            };
     }
 }

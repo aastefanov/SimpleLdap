@@ -10,7 +10,6 @@ namespace SimpleLdap.Tests
         [Test]
         public void ProviderMapped_HasValue()
         {
-            var service = new LdapContext<ActiveDirectoryLdapProvider>(new LdapConfiguration());
         }
     }
 }

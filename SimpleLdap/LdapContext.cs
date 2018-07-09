@@ -12,8 +12,8 @@ namespace SimpleLdap
     public class LdapContext<TProvider> where TProvider : ILdapProvider, new()
     {
         private readonly LdapConfiguration _configuration;
-        private readonly ILdapProvider _provider = new TProvider();
-        private readonly LdapAttributeMapper<TProvider> _mapper = new LdapAttributeMapper<TProvider>();
+        private static readonly ILdapProvider Provider = new TProvider();
+        private readonly LdapAttributeMapper<TProvider> _mapper = new LdapAttributeMapper<TProvider>(Provider);
         
         public LdapContext(LdapConfiguration configuration)
         {

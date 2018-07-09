@@ -49,7 +49,7 @@
         MailAlias,
         
         SimpleDisplayName,
-        HideFromAddressLists,
+        EmailHideFromAddressLists,
         
         EmailSendSize,
         EmailRecvSize,

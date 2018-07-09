@@ -29,7 +29,9 @@ namespace SimpleLdap.Providers
 
                 {LdapAttribute.EmailAdminGroup, "msExchAdminGroup"},
                 {LdapAttribute.EmailServerName, "msExchHomeServerName"},
-                {LdapAttribute.EmailPoliciesExcluded, "msExchPoliciesExcluded"}
+                {LdapAttribute.EmailPoliciesExcluded, "msExchPoliciesExcluded"},
+                {LdapAttribute.EmailHideFromAddressLists, "msExchHideFromAddressLists"}
+
             };
 
         internal static Dictionary<LdapAttribute, string> TerminalServicesAttributes =>

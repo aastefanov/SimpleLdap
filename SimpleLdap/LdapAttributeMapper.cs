@@ -11,16 +11,16 @@ using SimpleLdap.Interfaces;
 namespace SimpleLdap
 {
     public class LdapAttributeMapper<TProvider>
-        where TProvider : ILdapProvider, new()
+        where TProvider : ILdapProvider
     {
         private readonly ILdapProvider _provider;
 
         public IDictionary<LdapAttribute, string> Mappings => _provider.AttributeNames;
-        public IDictionary<LdapEntityType, string> ObjectClasses => _provider.ObjectClasses;
+        public IDictionary<LdapEntityType, IEnumerable<string>> ObjectClasses => _provider.ObjectClasses;
 
-        public LdapAttributeMapper()
+        public LdapAttributeMapper(ILdapProvider provider)
         {
-            _provider = new TProvider();
+            _provider = provider;
         }
 
         public string GetAttributeKey(LdapAttribute attribute)
@@ -29,7 +29,7 @@ namespace SimpleLdap
             throw new ArgumentException();
         }
 
-        public string GetObjectClass(LdapEntityType entityType)
+        public IEnumerable<string> GetObjectClasses(LdapEntityType entityType)
         {
             if (ObjectClasses.ContainsKey(entityType)) return ObjectClasses[entityType];
             throw new ArgumentException();
@@ -47,14 +47,15 @@ public class GenericMapper<T, TProvider> : ClassMap<T>
         _mapper = mapper;
     }
 
+    /// TODO: Active directory ObjectCategory mapping
     public override IClassMap PerformMapping(string namingContext = null, string objectCategory = null,
         bool includeObjectCategory = true,
         IEnumerable<string> objectClasses = null, bool includeObjectClasses = true)
     {
         NamingContext(namingContext);
 
-        ObjectCategory("top");
-        ObjectClass(_mapper.GetObjectClass(GetEntityType()));
+        // ObjectCategory("top");
+        ObjectClasses(_mapper.GetObjectClasses(GetEntityType()) ?? objectClasses);
 
         Dictionary<PropertyInfo, LdapAttributeAttribute> propertiesWithAttributes = GetPropertiesWithAttributes()
             .ToDictionary(x => x, y =>
