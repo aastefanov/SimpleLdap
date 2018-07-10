@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using LinqToLdap.Mapping;
-using SimpleLdap.Attributes;
+﻿using SimpleLdap.Attributes;
 using SimpleLdap.Interfaces;
 
 namespace SimpleLdap.Tests.Models
@@ -9,7 +6,7 @@ namespace SimpleLdap.Tests.Models
     [LdapEntity(LdapEntityType.User)]
     public class LdapUser : ILdapEntity
     {
-        [LdapAttribute(LdapAttribute.DistinguishedName, true)]
+        [LdapAttribute(LdapAttribute.DistinguishedName)]
         public string DistinguishedName { get; set; }
 
         [LdapAttribute(LdapAttribute.FirstName)]

@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Diagnostics;
 using SimpleLdap.Attributes;
 
 namespace SimpleLdap.Providers
@@ -63,7 +62,7 @@ namespace SimpleLdap.Providers
             {LdapAttribute.Office365LigitationHoldDuration, "LitigationHoldDuration"},
             {LdapAttribute.Office365InPlaceArchiveEnabled, "InPlaceArchive"},
             {LdapAttribute.Office365InPlaceArchiveName, "ArchiveName"},
-            {LdapAttribute.Office365LogonName, "O365userPrincipalName"},
+            {LdapAttribute.Office365LogonName, "O365userPrincipalName"}
         };
 
         internal static IDictionary<TKey, TValue> Concat<TKey, TValue>(this IDictionary<TKey, TValue> dict1,

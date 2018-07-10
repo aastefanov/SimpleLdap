@@ -3,7 +3,6 @@ using NSubstitute;
 using NUnit.Framework;
 using SimpleLdap.Attributes;
 using SimpleLdap.Interfaces;
-using SimpleLdap.Providers;
 
 namespace SimpleLdap.Tests
 {

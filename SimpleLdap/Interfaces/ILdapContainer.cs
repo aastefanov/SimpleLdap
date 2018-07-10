@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using SimpleLdap.Attributes;
-
-namespace SimpleLdap.Interfaces
+﻿namespace SimpleLdap.Interfaces
 {
     public interface ILdapContainer : ILdapEntity
     {

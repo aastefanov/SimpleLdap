@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics.SymbolStore;
 
 namespace SimpleLdap.Attributes
 {
@@ -7,14 +6,12 @@ namespace SimpleLdap.Attributes
     public class LdapAttributeAttribute : Attribute
     {
         public LdapAttribute Attribute { get; }
-        public bool IsReadOnly { get; }
         public bool IsDistinguishedName { get; }
 
-        public LdapAttributeAttribute(LdapAttribute attribute, bool isReadOnly = false)
+        public LdapAttributeAttribute(LdapAttribute attribute)
         {
             Attribute = attribute;
             IsDistinguishedName = attribute == LdapAttribute.DistinguishedName;
-            IsReadOnly = isReadOnly;
         }
     }
 }

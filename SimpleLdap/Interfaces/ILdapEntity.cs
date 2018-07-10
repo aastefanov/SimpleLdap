@@ -1,12 +1,16 @@
-﻿using System.Collections.Generic;
-using LinqToLdap.Mapping;
-using SimpleLdap.Attributes;
+﻿using SimpleLdap.Attributes;
 
 namespace SimpleLdap.Interfaces
 {
     public interface ILdapEntity
     {
-        [LdapAttribute(LdapAttribute.DistinguishedName, true)]
+        [LdapAttribute(LdapAttribute.DistinguishedName)]
         string DistinguishedName { get; set; }
+    }
+
+    public abstract class LdapEntityBase : ILdapEntity
+    {
+        [LdapAttribute(LdapAttribute.DistinguishedName)]
+        public string DistinguishedName { get; set; }
     }
 }

@@ -1,6 +1,4 @@
-﻿using LinqToLdap;
-using NUnit.Framework;
-using SimpleLdap.Providers;
+﻿using NUnit.Framework;
 
 namespace SimpleLdap.Tests
 {
