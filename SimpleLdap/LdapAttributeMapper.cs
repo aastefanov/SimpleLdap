@@ -1,38 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using LinqToLdap.Mapping;
-using SimpleLdap;
+﻿using System.Collections.Generic;
 using SimpleLdap.Attributes;
 using SimpleLdap.Interfaces;
 
 namespace SimpleLdap
 {
-    public class LdapAttributeMapper<TProvider>
-        where TProvider : ILdapProvider
+    /// <summary>
+    /// Makes the mapping between <see cref="LdapAttribute"/> and server-specific attribute names
+    /// based on <see cref="ILdapProvider"/>
+    /// </summary>
+    public class LdapAttributeMapper
     {
-        private readonly TProvider _provider;
+        private readonly ILdapProvider _provider;
 
-        public IDictionary<LdapAttribute, string> Mappings => _provider.AttributeNames;
-        public IDictionary<LdapEntityType, IEnumerable<string>> ObjectClasses => _provider.ObjectClasses;
+        private IDictionary<LdapAttribute, string> Mappings => _provider.AttributeNames;
 
-        public LdapAttributeMapper(TProvider provider)
+        private IDictionary<LdapEntityType, IEnumerable<string>> ObjectClasses => _provider.ObjectClasses;
+
+        public LdapAttributeMapper(ILdapProvider provider)
         {
             _provider = provider;
         }
 
         public string GetAttributeKey(LdapAttribute attribute)
         {
-            if (Mappings.ContainsKey(attribute)) return Mappings[attribute];
-            throw new ArgumentException();
+            return Mappings.ContainsKey(attribute) ? Mappings[attribute] : null;
         }
+
+        public string GetAttributeKey(LdapAttributeAttribute attribute) => GetAttributeKey(attribute.Attribute);
 
         public IEnumerable<string> GetObjectClasses(LdapEntityType entityType)
         {
-            if (ObjectClasses.ContainsKey(entityType)) return ObjectClasses[entityType];
-            throw new ArgumentException();
+            return ObjectClasses.ContainsKey(entityType) ? ObjectClasses[entityType] : null;
         }
     }
 }
-

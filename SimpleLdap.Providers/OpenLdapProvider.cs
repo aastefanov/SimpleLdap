@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using SimpleLdap.Attributes;
 using SimpleLdap.Interfaces;
+using static SimpleLdap.Attributes.LdapAttribute;
+using static SimpleLdap.Attributes.LdapEntityType;
 
 namespace SimpleLdap.Providers
 {
@@ -8,35 +10,35 @@ namespace SimpleLdap.Providers
     {
         public IDictionary<LdapAttribute, string> AttributeNames => new Dictionary<LdapAttribute, string>
         {
-            {LdapAttribute.DistinguishedName, "dn"},
-            {LdapAttribute.FirstName, "gn"},
-            {LdapAttribute.FullName, "cn"},
-            {LdapAttribute.HomeNumber, "homePhone"},
-            {LdapAttribute.Country, "co"},
-            {LdapAttribute.UserPhoto, "jpegPhoto"},
-            {LdapAttribute.MobileNumber, "mobile"},
-            {LdapAttribute.EmailAddress, "mail"},
-            {LdapAttribute.Pager, "pager"},
-            {LdapAttribute.LastName, "surname"},
-            {LdapAttribute.StreetAddress, "street"},
-            {LdapAttribute.Password, "userPassword"},
-            {LdapAttribute.LogonName, "uid"},
-            {LdapAttribute.State, "stateOrProvinceName"},
-            {LdapAttribute.ZipCode, "postalCode"},
-            {LdapAttribute.TelephoneNumber, "facsimileTelephoneNumber"}
+            {DistinguishedName, "dn"},
+            {FirstName, "gn"},
+            {FullName, "cn"},
+            {HomeNumber, "homePhone"},
+            {Country, "co"},
+            {UserPhoto, "jpegPhoto"},
+            {MobileNumber, "mobile"},
+            {EmailAddress, "mail"},
+            {Pager, "pager"},
+            {LastName, "surname"},
+            {StreetAddress, "street"},
+            {Password, "userPassword"},
+            {LogonName, "uid"},
+            {State, "stateOrProvinceName"},
+            {ZipCode, "postalCode"},
+            {TelephoneNumber, "facsimileTelephoneNumber"}
         };
 
         public IDictionary<LdapEntityType, IEnumerable<string>> ObjectClasses =>
             new Dictionary<LdapEntityType, IEnumerable<string>>
             {
                 {
-                    LdapEntityType.User, new List<string> {"account", "top"}
+                    User, new List<string> {"account", "top"}
                 },
                 {
-                    LdapEntityType.Group, new List<string> {"groupOfUniqueNames", "top"}
+                    Group, new List<string> {"groupOfUniqueNames", "top"}
                 },
                 {
-                    LdapEntityType.OrganizationalUnit, new List<string> {"organizationalUnit", "top"}
+                    OrganizationalUnit, new List<string> {"organizationalUnit", "top"}
                 }
             };
     }

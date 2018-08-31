@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using SimpleLdap.Attributes;
 using SimpleLdap.Interfaces;
+using static SimpleLdap.Attributes.LdapAttribute;
+using static SimpleLdap.Attributes.LdapEntityType;
 
 namespace SimpleLdap.Providers
 {
@@ -8,60 +10,60 @@ namespace SimpleLdap.Providers
     {
         public IDictionary<LdapAttribute, string> AttributeNames => new Dictionary<LdapAttribute, string>
             {
-                {LdapAttribute.DistinguishedName, "DN"},
-                {LdapAttribute.ObjectClass, "objectClass"},
+                {DistinguishedName, "distinguishedName"},
+                {ObjectClass, "objectClass"},
 
-                {LdapAttribute.FirstName, "givenName"},
-                {LdapAttribute.Initials, "initials"},
-                {LdapAttribute.LastName, "sn"},
-                {LdapAttribute.LogonName, "userPrincipalName"},
-                {LdapAttribute.FullName, "cn"},
+                {FirstName, "givenName"},
+                {Initials, "initials"},
+                {LastName, "sn"},
+                {LogonName, "userPrincipalName"},
+                {FullName, "cn"},
 
-                {LdapAttribute.Description, "description"},
+                {Description, "description"},
 
-                {LdapAttribute.Office, "physicalDeliveryOfficeName"},
-                {LdapAttribute.TelephoneNumber, "telephoneNumber"},
-                {LdapAttribute.EmailAddress, "mail"},
-                {LdapAttribute.WebPage, "wWWHomePage"},
+                {Office, "physicalDeliveryOfficeName"},
+                {TelephoneNumber, "telephoneNumber"},
+                {EmailAddress, "mail"},
+                {WebPage, "wWWHomePage"},
 
-                {LdapAttribute.StreetAddress, "streetAddress"},
-                {LdapAttribute.PostOfficeBox, "postOfficeBox"},
-                {LdapAttribute.City, "l"},
-                {LdapAttribute.State, "st"},
-                {LdapAttribute.ZipCode, "postalCode"},
-                {LdapAttribute.Country, "co"},
+                {StreetAddress, "streetAddress"},
+                {PostOfficeBox, "postOfficeBox"},
+                {City, "l"},
+                {State, "st"},
+                {ZipCode, "postalCode"},
+                {Country, "co"},
 
-                {LdapAttribute.Password, "password"},
-                {LdapAttribute.AccountExpires, "accountExpires"},
-                {LdapAttribute.UserAccountControl, "userAccountControl"},
-                {LdapAttribute.UserPhoto, "exchangePhoto"},
-                {LdapAttribute.ProfilePath, "profilePath"},
-                {LdapAttribute.LoginScript, "scriptPath"},
-                {LdapAttribute.HomeFolder, "homeDirectory"},
-                {LdapAttribute.HomeDrive, "homeDrive"},
-                {LdapAttribute.LogonTo, "userWorkstations"},
+                {Password, "password"},
+                {AccountExpires, "accountExpires"},
+                {UserAccountControl, "userAccountControl"},
+                {UserPhoto, "exchangePhoto"},
+                {ProfilePath, "profilePath"},
+                {LoginScript, "scriptPath"},
+                {HomeFolder, "homeDirectory"},
+                {HomeDrive, "homeDrive"},
+                {LogonTo, "userWorkstations"},
 
-                {LdapAttribute.HomeNumber, "homePhone"},
-                {LdapAttribute.Pager, "pager"},
-                {LdapAttribute.MobileNumber, "mobile"},
-                {LdapAttribute.Fax, "facsimileTelephoneNumber"},
-                {LdapAttribute.IpPhone, "ipPhone"},
+                {HomeNumber, "homePhone"},
+                {Pager, "pager"},
+                {MobileNumber, "mobile"},
+                {Fax, "facsimileTelephoneNumber"},
+                {IpPhone, "ipPhone"},
 
-                {LdapAttribute.Notes, "info"},
-                {LdapAttribute.Title, "title"},
-                {LdapAttribute.Department, "department"},
-                {LdapAttribute.Company, "company"},
-                {LdapAttribute.Manager, "manager"},
-                {LdapAttribute.MailAlias, "mailNickName"},
+                {Notes, "info"},
+                {Title, "title"},
+                {Department, "department"},
+                {Company, "company"},
+                {Manager, "manager"},
+                {MailAlias, "mailNickName"},
 
-                {LdapAttribute.SimpleDisplayName, "displayNamePrintable"},
+                {SimpleDisplayName, "displayNamePrintable"},
 
-                {LdapAttribute.PreventDeletion, "preventDeletion"},
-                {LdapAttribute.ManagerCanUpdateMembers, "managerCanUpdateMembers"},
-                {LdapAttribute.PrimaryGroupId, "primaryGroupID"},
-                {LdapAttribute.ManagedBy, "managedBy"},
-                {LdapAttribute.TargetAddress, "targetAddress"},
-                {LdapAttribute.ProxyAdresses, "proxyAddresses"}
+                {PreventDeletion, "preventDeletion"},
+                {ManagerCanUpdateMembers, "managerCanUpdateMembers"},
+                {PrimaryGroupId, "primaryGroupID"},
+                {ManagedBy, "managedBy"},
+                {TargetAddress, "targetAddress"},
+                {ProxyAdresses, "proxyAddresses"}
             }
             .Concat(AttributeGroups.EmailAttributes)
             .Concat(AttributeGroups.TerminalServicesAttributes)
@@ -71,13 +73,13 @@ namespace SimpleLdap.Providers
             new Dictionary<LdapEntityType, IEnumerable<string>>
             {
                 {
-                    LdapEntityType.User, new List<string> {"person", "top"}
+                    User, new List<string> {"person", "top"}
                 },
                 {
-                    LdapEntityType.Group, new List<string> {"group", "top"}
+                    Group, new List<string> {"group", "top"}
                 },
                 {
-                    LdapEntityType.OrganizationalUnit, new List<string> {"organizationalUnit", "top"}
+                    OrganizationalUnit, new List<string> {"organizationalUnit", "top"}
                 }
             };
     }

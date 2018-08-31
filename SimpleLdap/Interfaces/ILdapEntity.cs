@@ -7,10 +7,4 @@ namespace SimpleLdap.Interfaces
         [LdapAttribute(LdapAttribute.DistinguishedName)]
         string DistinguishedName { get; set; }
     }
-
-    public abstract class LdapEntityBase : ILdapEntity
-    {
-        [LdapAttribute(LdapAttribute.DistinguishedName)]
-        public string DistinguishedName { get; set; }
-    }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using SimpleLdap.Attributes;
+using static SimpleLdap.Attributes.LdapAttribute;
 
 namespace SimpleLdap.Providers
 {
@@ -8,68 +9,68 @@ namespace SimpleLdap.Providers
         internal static Dictionary<LdapAttribute, string> EmailAttributes =>
             new Dictionary<LdapAttribute, string>
             {
-                {LdapAttribute.EmailSendSize, "submissionContLength"},
-                {LdapAttribute.EmailRecvSize, "delivContLength"},
-                {LdapAttribute.EmailAcceptFromAuthenticatedOnly, "msExchRequireAuthToSendTo"},
-                {LdapAttribute.EmailRejectFrom, "unauthOrig"},
-                {LdapAttribute.EmailAcceptFrom, "authOrig"},
-                {LdapAttribute.EmailSendOnBehalf, "publicDelegates"},
-                {LdapAttribute.EmailForwardTo, "altRecipient"},
-                {LdapAttribute.EmailDeliverAndRedirect, "deliverAndRedirect"},
-                {LdapAttribute.ReciepientLimits, "msExchRecipLimit"},
-                {LdapAttribute.EmailUseStoreDefaults, "mDBuseDefaults"},
-                {LdapAttribute.EmailQuota, "mDBStorageQuota"},
-                {LdapAttribute.EmailOverQuota, "mDBOverQuotaLimit"},
-                {LdapAttribute.EmailOverHardQuota, "mDBOverHardQuotaLimit"},
-                {LdapAttribute.EmailDeletedItemFlags, "deletedItemFlags"},
-                {LdapAttribute.EmailGarbageCollectionPeriod, "garbageCollPeriod"},
-                {LdapAttribute.EmailMobileAccess, "msExchOmaAdminWirelessEnable"},
-                {LdapAttribute.EmailWebAccess, "protocolSettings"},
+                {EmailSendSize, "submissionContLength"},
+                {EmailRecvSize, "delivContLength"},
+                {EmailAcceptFromAuthenticatedOnly, "msExchRequireAuthToSendTo"},
+                {EmailRejectFrom, "unauthOrig"},
+                {EmailAcceptFrom, "authOrig"},
+                {EmailSendOnBehalf, "publicDelegates"},
+                {EmailForwardTo, "altRecipient"},
+                {EmailDeliverAndRedirect, "deliverAndRedirect"},
+                {ReciepientLimits, "msExchRecipLimit"},
+                {EmailUseStoreDefaults, "mDBuseDefaults"},
+                {EmailQuota, "mDBStorageQuota"},
+                {EmailOverQuota, "mDBOverQuotaLimit"},
+                {EmailOverHardQuota, "mDBOverHardQuotaLimit"},
+                {EmailDeletedItemFlags, "deletedItemFlags"},
+                {EmailGarbageCollectionPeriod, "garbageCollPeriod"},
+                {EmailMobileAccess, "msExchOmaAdminWirelessEnable"},
+                {EmailWebAccess, "protocolSettings"},
 
-                {LdapAttribute.EmailAdminGroup, "msExchAdminGroup"},
-                {LdapAttribute.EmailServerName, "msExchHomeServerName"},
-                {LdapAttribute.EmailPoliciesExcluded, "msExchPoliciesExcluded"},
-                {LdapAttribute.EmailHideFromAddressLists, "msExchHideFromAddressLists"}
+                {EmailAdminGroup, "msExchAdminGroup"},
+                {EmailServerName, "msExchHomeServerName"},
+                {EmailPoliciesExcluded, "msExchPoliciesExcluded"},
+                {EmailHideFromAddressLists, "msExchHideFromAddressLists"}
 
             };
 
         internal static Dictionary<LdapAttribute, string> TerminalServicesAttributes =>
             new Dictionary<LdapAttribute, string>
             {
-                {LdapAttribute.TerminalServicesAllowLogon, "tsAllowLogon"},
-                {LdapAttribute.TerminalServicesProfilePath, "tsProfilePath"},
-                {LdapAttribute.TerminalServicesHomeFolder, "tsHomeDir"},
-                {LdapAttribute.TerminalServicesHomeDrive, "tsHomeDirDrive"},
-                {LdapAttribute.TerminalServicesLoginScriptInherit, "tsInheritInitialProgram"},
-                {LdapAttribute.TerminalServicesLoginScript, "tsIntialProgram"},
-                {LdapAttribute.TerminalServicesWorkingDirectory, "tsWorkingDir"},
-                {LdapAttribute.TerminalServicesConnectClientDrives, "tsDeviceClientDrives"},
-                {LdapAttribute.TerminalServicesConnectClientPrinters, "tsDeviceClientPrinters"},
-                {LdapAttribute.TerminalServicesConnectDefaultPrinter, "tsDeviceClientDefaultPrinter"},
-                {LdapAttribute.TerminalServicesSessionDisconnect, "tsTimeOutSettingsDisConnections"},
-                {LdapAttribute.TerminalServicesSessionActiveLimit, "tsTimeOutSettingsConnections"},
-                {LdapAttribute.TerminalServicesSessionIdleLimit, "tsTimeOutSettingsIdle"},
-                {LdapAttribute.TerminalServicesSessionTimeout, "tsBrokenTimeOutSettings"},
-                {LdapAttribute.TerminalServicesSesionReconnection, "tsReConnectSettings"},
-                {LdapAttribute.TerminalServicesRemoteControl, "tsShadowSettings"}
+                {TerminalServicesAllowLogon, "tsAllowLogon"},
+                {TerminalServicesProfilePath, "tsProfilePath"},
+                {TerminalServicesHomeFolder, "tsHomeDir"},
+                {TerminalServicesHomeDrive, "tsHomeDirDrive"},
+                {TerminalServicesLoginScriptInherit, "tsInheritInitialProgram"},
+                {TerminalServicesLoginScript, "tsIntialProgram"},
+                {TerminalServicesWorkingDirectory, "tsWorkingDir"},
+                {TerminalServicesConnectClientDrives, "tsDeviceClientDrives"},
+                {TerminalServicesConnectClientPrinters, "tsDeviceClientPrinters"},
+                {TerminalServicesConnectDefaultPrinter, "tsDeviceClientDefaultPrinter"},
+                {TerminalServicesSessionDisconnect, "tsTimeOutSettingsDisConnections"},
+                {TerminalServicesSessionActiveLimit, "tsTimeOutSettingsConnections"},
+                {TerminalServicesSessionIdleLimit, "tsTimeOutSettingsIdle"},
+                {TerminalServicesSessionTimeout, "tsBrokenTimeOutSettings"},
+                {TerminalServicesSesionReconnection, "tsReConnectSettings"},
+                {TerminalServicesRemoteControl, "tsShadowSettings"}
             };
         
         internal static Dictionary<LdapAttribute, string> Office365Attributes => 
         new Dictionary<LdapAttribute, string>
         {
-            {LdapAttribute.Office365Group, "GroupMemberObjectId"},
-            {LdapAttribute.Office365LigitationHoldEnabled, "LitigationHoldEnabled"},
-            {LdapAttribute.Office365LigitationHoldDuration, "LitigationHoldDuration"},
-            {LdapAttribute.Office365InPlaceArchiveEnabled, "InPlaceArchive"},
-            {LdapAttribute.Office365InPlaceArchiveName, "ArchiveName"},
-            {LdapAttribute.Office365LogonName, "O365userPrincipalName"}
+            {Office365Group, "GroupMemberObjectId"},
+            {Office365LigitationHoldEnabled, "LitigationHoldEnabled"},
+            {Office365LigitationHoldDuration, "LitigationHoldDuration"},
+            {Office365InPlaceArchiveEnabled, "InPlaceArchive"},
+            {Office365InPlaceArchiveName, "ArchiveName"},
+            {Office365LogonName, "O365userPrincipalName"}
         };
 
         internal static IDictionary<TKey, TValue> Concat<TKey, TValue>(this IDictionary<TKey, TValue> dict1,
             IDictionary<TKey, TValue> dict2)
         {
             var resultDict = new Dictionary<TKey, TValue>(dict1);
-            foreach (var pair in dict2)
+            foreach (KeyValuePair<TKey, TValue> pair in dict2)
             {
                 resultDict.Add(pair.Key, pair.Value);
             }

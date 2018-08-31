@@ -1,19 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq.Expressions;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Novell.Directory.Ldap;
 
 namespace SimpleLdap.Interfaces
 {
+    /// <summary>
+    /// Provides methods for executing commands on LDAP server
+    /// </summary>
     public interface ILdapContext
     {
-        IEnumerable<T> Where<T>(Expression<Func<T, bool>> expr) where T : class, ILdapEntity;
-        T FindByDistinguishedName<T>(string distinguishedName) where T : class, ILdapEntity, new();
-        
-        void Add<T>(T entity) where T : class, ILdapEntity;
-        
-        void Update<T>(T entity) where T : class, ILdapEntity;
-        
-        void Delete<T>(T entity) where T : class, ILdapEntity;
+        void Add<T>(T entity) where T : ILdapEntity;
+
+        void Update<T>(T entity, IEnumerable<LdapModification> modifications) where T : ILdapEntity;
+
+        void Delete<T>(T entity) where T : ILdapEntity;
         void Delete(string distinguishedName);
+
+        IQueryable<T> Query<T>();
     }
 }
