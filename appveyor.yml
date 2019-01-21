@@ -1,0 +1,24 @@
+version: '0.0.{build}'
+configuration:
+  - Release
+image:
+  - Visual Studio 2017
+platform: Any CPU
+init:
+  - ps: $Env:LABEL = $Env:APPVEYOR_BUILD_NUMBER.PadLeft(5, "0")
+environment:
+  PATH: $(PATH);$(PROGRAMFILES)\dotnet\
+before_build:
+  - cmd: dotnet --version
+  - appveyor-retry dotnet restore -v Minimal
+
+test: off
+build_script:
+  - dotnet -d build -c %CONFIGURATION%
+  - dotnet test /p:Version=%APPVEYOR_BUILD_VERSION% SimpleLdap.Tests\SimpleLdap.Tests.csproj --test-adapter-path:. --logger:Appveyor
+  - dotnet -d pack -c %CONFIGURATION% /p:Version=%APPVEYOR_BUILD_VERSION%
+artifacts:
+  - path: SimpleLdap\bin\Release\*.nupkg
+  - path: SimpleLdap.Providers\bin\Release\*.nupkg
+
+cache:
